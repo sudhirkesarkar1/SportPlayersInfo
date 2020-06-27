@@ -1,0 +1,18 @@
+[
+    {
+      "Id": 1,
+      "Name": "Chess"
+    },
+    {
+      "Id": 2,
+      "Name": "Cricket"
+    },
+    {
+      "Id": 3,
+      "Name": "Hockey"
+    },
+    {
+      "Id": 4,
+      "Name": "Soccer"
+    }
+  ]

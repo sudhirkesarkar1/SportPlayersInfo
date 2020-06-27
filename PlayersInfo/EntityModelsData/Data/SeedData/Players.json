@@ -1,0 +1,30 @@
+[
+    {
+      "Name": "Vidit Gujrathi",
+      "DateOfBirth": "10-24-1994",
+      "PictureUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fplayers.chessbase.com%2Fplayer%2FVidit_Santosh%2520Gujrathi&psig=AOvVaw0WuMmexH0___3Euu4PAIig&ust=1593336290723000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODX_K_WoeoCFQAAAAAdAAAAABAD",
+      "CountryId": 1,
+      "GameId": 1
+    },
+    {
+        "Name": "Sachin Tendulkar",
+        "DateOfBirth": "12-12-1969",
+        "PictureUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FViswanathan_Anand&psig=AOvVaw3eAiP_kEWnrQsvbWBFeWH6&ust=1593337801072000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLC4vIDcoeoCFQAAAAAdAAAAABAD",
+        "CountryId": 1,
+        "GameId": 1
+    },
+    {
+        "Name": "Steven Gerrard",
+        "DateOfBirth": "12-12-1969",
+        "PictureUrl": "https://en.wikipedia.org/wiki/Steven_Gerrard",
+        "CountryId": 4,
+        "GameId": 4
+    },
+    {
+        "Name": "John Terry",
+        "DateOfBirth": "12-12-1969",
+        "PictureUrl": "https://en.wikipedia.org/wiki/John_Terry",
+        "CountryId": 4,
+        "GameId": 4
+    }
+  ]
