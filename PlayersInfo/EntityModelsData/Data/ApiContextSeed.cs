@@ -18,7 +18,7 @@ namespace PlayersInfo.EntityModelsData.Data
                 if (!context.Countries.Any())
                 {
                     var countriesData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/Countries.json");
+                        File.ReadAllText("./EntityModelsData/Data/SeedData/Countries.json");
 
                     var countries = JsonSerializer.Deserialize<List<Country>>(countriesData);
 
@@ -33,7 +33,7 @@ namespace PlayersInfo.EntityModelsData.Data
                 if (!context.Games.Any())
                 {
                     var gamesData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/Games.json");
+                        File.ReadAllText("./EntityModelsData/Data/SeedData/Games.json");
 
                     var games = JsonSerializer.Deserialize<List<Game>>(gamesData);
 
@@ -48,7 +48,7 @@ namespace PlayersInfo.EntityModelsData.Data
                 if (!context.Players.Any())
                 {
                     var playersData =
-                        File.ReadAllText("../Infrastructure/Data/SeedData/Players.json");
+                        File.ReadAllText("./EntityModelsData/Data/SeedData/Players.json");
 
                     var players = JsonSerializer.Deserialize<List<Player>>(playersData);
 
