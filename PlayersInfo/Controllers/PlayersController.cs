@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using PlayersInfo.Dtos;
 using PlayersInfo.EntityModelsData.Models.Entities;
 using PlayersInfo.EntityModelsData.Models.Interfaces;
 
@@ -14,24 +16,29 @@ namespace PlayersInfo.Controllers
     public class PlayersController  : ControllerBase
     {
         private readonly IPlayerRepository _repo;
+        private readonly IMapper _mapper;
 
-        public PlayersController(IPlayerRepository repo)
+        public PlayersController(IPlayerRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<Player>>> GetPlayers()
+        public async Task<ActionResult<IReadOnlyList<PlayerToReturnDto>>> GetPlayers()
         {
-            var products = await _repo.GetPlayersAsync();
-
-            return Ok(products);
+            var players = await _repo.GetPlayersAsync();
+            var playersToReturn = _mapper.Map<IReadOnlyList<Player>,IReadOnlyList<PlayerToReturnDto>>(players);
+            return Ok(playersToReturn);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Player>> GetPlayert(int id)
+        public async Task<ActionResult<PlayerToReturnDto>> GetPlayert(int id)
         {
-            return await _repo.GetPlayerByIdAsync(id);
+            var player = await _repo.GetPlayerByIdAsync(id);
+            var playerToReturn = _mapper.Map<Player,PlayerToReturnDto>(player);
+            return Ok(playerToReturn);
+            // return Ok(player);
         }
 
         [HttpGet("countries")]

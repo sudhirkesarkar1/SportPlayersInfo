@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +14,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using PlayersInfo.EntityModelsData.Data;
 using PlayersInfo.EntityModelsData.Models.Interfaces;
+using PlayersInfo.Helpers;
 
 namespace PlayersInfo
 {
@@ -30,6 +32,7 @@ namespace PlayersInfo
         {
             services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddControllers();
+            services.AddAutoMapper(typeof(MappingProfiles));
             services.AddDbContext<ApiDbContext>(x =>
             {
                 x.UseSqlite(_config.GetConnectionString("DefaultConnection"));
