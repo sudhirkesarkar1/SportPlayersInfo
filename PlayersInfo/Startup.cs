@@ -15,6 +15,7 @@ using Microsoft.Extensions.Logging;
 using PlayersInfo.EntityModelsData.Data;
 using PlayersInfo.EntityModelsData.Models.Interfaces;
 using PlayersInfo.Helpers;
+using PlayersInfo.Middleware;
 
 namespace PlayersInfo
 {
@@ -30,8 +31,8 @@ namespace PlayersInfo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IPlayerRepository, PlayerRepository>();
             services.AddControllers();
+            services.AddApplicationServices();
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddDbContext<ApiDbContext>(x =>
             {
@@ -42,10 +43,8 @@ namespace PlayersInfo
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
+            app.UseMiddleware<ExceptionMiddleware>();
+            app.UseStatusCodePagesWithReExecute("/errors/{0}");
 
             app.UseHttpsRedirection();
 
